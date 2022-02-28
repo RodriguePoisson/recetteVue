@@ -15,23 +15,21 @@
 <script>
 
 import Recette from './Recette.vue';
-import RecetteDAO from '../DAO/RecetteDAO.js'
+
+import store from './store/RecetteStore'
 
 
 export default{
+    store:store,
     name:'ListRecette',
     components:{Recette},
     data(){
         return{
-            recettes: [{title:"Carbo",content:"pate carbo"},{title:"Caazeazerbo",content:"pate cazeazeazarbo"},{title:"Carzaebo",content:"pate carbo"}],
+            recettes:store.getters.recettes
         }
     },
     computed:{
-        az: function()
-        {
-            let a = new RecetteDAO()
-            console.log(a.getRecettes())
-        }
+
     }
     
 }
