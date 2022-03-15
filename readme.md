@@ -25,3 +25,7 @@ Ce qu'il manque :
 - pagination
 
 Je me rend bien compte que le but d'un language front est la responsivité et que du coup c'est un gros problème et j'en suis désolé.
+
+Le crud, l'identification et l'inscription marchent (au moins) mais ne sont pas responsive
+
+Pour ce qui est de vuejs sans parler de vuex je pense avoir bien compris le cycle de vie des components et de comment les faire interragir.
