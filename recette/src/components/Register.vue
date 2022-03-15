@@ -11,17 +11,18 @@
                     Sign up
                   </p>
 
-                  <form class="mx-1 mx-md-4">
+                  <form  v-on:submit.prevent class="mx-1 mx-md-4">
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
                         <input
+                         v-model="nom"
                           type="text"
                           id="form3Example1c"
                           class="form-control"
                         />
                         <label class="form-label" for="form3Example1c"
-                          >Your Name</label
+                          >Nom</label
                         >
                       </div>
                     </div>
@@ -30,12 +31,13 @@
                       <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
                         <input
+                          v-model="prenom"
                           type="email"
                           id="form3Example3c"
                           class="form-control"
                         />
                         <label class="form-label" for="form3Example3c"
-                          >Your Email</label
+                          >Prenom</label
                         >
                       </div>
                     </div>
@@ -44,12 +46,12 @@
                       <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
                         <input
-                          type="password"
+                          v-model="email"
                           id="form3Example4c"
                           class="form-control"
                         />
                         <label class="form-label" for="form3Example4c"
-                          >Password</label
+                          >Email</label
                         >
                       </div>
                     </div>
@@ -58,12 +60,13 @@
                       <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
                         <input
+                          v-model="password"
                           type="password"
                           id="form3Example4cd"
                           class="form-control"
                         />
                         <label class="form-label" for="form3Example4cd"
-                          >Repeat your password</label
+                          >Password</label
                         >
                       </div>
                     </div>
@@ -84,7 +87,7 @@
                     <div
                       class="d-flex justify-content-center mx-4 mb-3 mb-lg-4"
                     >
-                      <button type="button" class="btn btn-primary btn-lg">
+                      <button v-on:click="inscription" type="button" class="btn btn-primary btn-lg">
                         Register
                       </button>
                     </div>
@@ -112,3 +115,25 @@
     </div>
   </section>
 </template>
+
+<script>
+import UserDao from '../DAO/UserDAO'
+export default {
+  name:'Register',
+  data(){
+    return{
+      nom:'',
+      prenom:'',
+      email:'',
+      password:''
+    }
+  },
+  methods:{
+    inscription()
+    {
+      let dao = new UserDao()
+      dao.inscription(this.email,this.prenom,this.nom,this.password)
+    }
+  }
+}
+</script>

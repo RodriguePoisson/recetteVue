@@ -11,7 +11,7 @@ class RecetteDAO
         let answer 
         try
         {
-            answer = await axios.post(this.urlBackend+'inscription',{"email":email,"name":name,"lastname":lastname,"password":password})
+            answer = await axios.post(this.urlBackend+'inscription',{"email":email,"name":name,"lastname":lastname,"pass":password})
         }
         catch(e)
         {
@@ -23,16 +23,17 @@ class RecetteDAO
     async connexion(email,password)
     {
         let answer
+        let answer_to_return
         try
         {
              answer = await axios.post(this.urlBackend+'connexion',{"email":email,"password":password})
-             answer = answer.data
+             answer_to_return = answer.data
         }
         catch(e)
         {
-            answer = false
+            answer_to_return = false
         }
-        return answer
+        return answer_to_return
     }
 }
 

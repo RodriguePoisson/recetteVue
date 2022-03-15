@@ -6,24 +6,37 @@ const recettedao = new RecetteDAO()
 const state = {
     recettes:await recettedao.getRecettes()
 }
-const getters = {
+const getters = 
+{
     recettes: state => state.recettes,
-    getSpecificRecette(id_recette){
-
-            for(var recette_object in state => state.recettes)
+    getSpecificRecette : (state) =>(id_recette)=>{
+            for( let recette of state.recettes )
             {
-                if(recette_object.id=id_recette)
+                
+                if(recette.id==id_recette)
                 {
-                    return recette_object
+                    return recette
                 }
             }
-            return null
+    },
+    getRecetteByUser : (state) =>(id_user)=>{
+        let list_recette = new Array()
+        for(let recette of state.recettes )
+        {
+            if(recette.user.id==id_user)
+            {
+                list_recette.push(recette)
+            }
         }
+        return list_recette
+    }
 }
+
+
 
 export default new Vuex.Store({
     state:state,
-    mutation:{},
+    mutations:{},
     getters:getters,
     actions:{},
 })

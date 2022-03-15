@@ -2,12 +2,13 @@
 
 
 
-
+import NavBar from './components/NavBar.vue'
 let bootstrapScript = document.createElement('script')
 bootstrapScript.setAttribute('src',"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js") 
 bootstrapScript.setAttribute('integrity',"sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p")
 bootstrapScript.setAttribute('crossorigin',"anonymous")
 document.head.appendChild(bootstrapScript)
+
 </script>
 
 
@@ -17,6 +18,7 @@ document.head.appendChild(bootstrapScript)
   </header>
 
   <main>
+    <NavBar> </NavBar>
     <router-view></router-view>
   </main>
 </template>

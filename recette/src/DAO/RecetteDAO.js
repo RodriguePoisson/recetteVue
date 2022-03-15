@@ -14,13 +14,9 @@ class RecetteDAO
         let recette_list = []
         for (const recette of recettesData) 
         {
-     
-          
-            recette_list.push(new Recette(recette.title,recette.content,recette.image,recette._id))
+            recette_list.push(new Recette(recette.title,recette.content,recette.image,recette._id,recette.user[0]))
         }
         return recette_list
-
-
     }
 }
 
