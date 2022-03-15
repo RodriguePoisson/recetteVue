@@ -16,7 +16,7 @@
                                 <textarea v-model="contenu" type="textarea" name="password" id="password" class="form-control"> </textarea>
                             </div>
                             <div class="form-group">
-                                <input v-on:click="modifie" type="submit" name="submit" class="btn btn-info btn-md" value="Ajouter une recette">
+                                <input v-on:click="ajout" type="submit" name="submit" class="btn btn-info btn-md" value="Ajouter une recette">
                             </div>
                         </form>
                     </div>
@@ -38,9 +38,11 @@ export default {
         }
     },
     methods:{
-        modifie(){
+        ajout(){
             let dao = new RecetteDAO()
-            dao.modifieRecette(this.titre,this.contenu,this.$UserStore.state.user.jwt,this.$route.params.id)
+            console.log(this.$UserStore.state.user)
+            dao.ajouterRecette(this.titre,this.contenu,this.$UserStore.state.user.jwt)
+            this.$RecetteStore.dispatch("ajouter")
         }
     }
 }

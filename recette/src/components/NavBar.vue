@@ -14,6 +14,9 @@
           <li class="nav-item">
             <a class="nav-link" href="#/MesRecettes">Mes recettes</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#/recette/ajouter">Ajouter recette</a>
+          </li>
         </ul>
         <ul class="navbar-nav ">
             <li class="nav-item">

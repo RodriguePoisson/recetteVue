@@ -31,12 +31,24 @@ const getters =
         return list_recette
     }
 }
+const actions={
+    ajouter(store){
+        store.commit("ajouter")
+    }
+}
+
+const mutations={
+    ajouter(state){
+        state.recettes
+    } 
+}
+
 
 
 
 export default new Vuex.Store({
     state:state,
-    mutations:{},
+    mutations:mutations,
     getters:getters,
-    actions:{},
+    actions:actions,
 })
